@@ -7,22 +7,23 @@ if(global==null){
 var loginsubmit=document.getElementById("loginsubmit");
 loginsubmit.addEventListener("click",check)
 function check(){
+    var global1=JSON.parse(localStorage.getItem("global"));
     var loginemailid=document.getElementById("loginemailid").value;
     var loginpassword=document.getElementById("loginpassword").value;
     var divid=document.getElementById("divid1");
-    if(!(loginemailid in global)){
+    if(!(loginemailid in global1)){
         divid.style.color="red";
         divid.textContent="Hey! Register First! or Emailid Incorrect!";
     }
-    else if(loginpassword!=global[loginemailid]['password']){
+    else if(loginpassword!=global1[loginemailid]['password']){
         divid.style.color="red";
         divid.textContent="Hey! Password Incorrect!";
     }
     else{
-        divid.style.color="red";
+        divid.style.color="green";
         divid.textContent="Success!";
         setTimeout(() => {
-            window.location.href('home.html')
+            window.location.href='home.html';
         }, 3000);
         localStorage.setItem("current",JSON.stringify(loginemailid));
     }

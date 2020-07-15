@@ -3,12 +3,18 @@ var ourdate=tempdate.getDate();
 var ourmonth=tempdate.getMonth();
 var ouryear=tempdate.getFullYear();
 var date=document.getElementById("date");
+console.log(date.value);
+if(ourmonth<10){
+    ourmonth="0"+ourmonth.toString();
+}
+if(ourdate<10){
+    ourdate="0"+ourdate.toString();
+}
 date.value=ouryear.toString()+"-"+ourmonth.toString()+"-"+ourdate.toString();
+console.log(date.value)
 var global=JSON.parse(localStorage.getItem("global"));
 var current=JSON.parse(localStorage.getItem("current"));
-var divnameid=document.getElementById("divname");
-divnameid.textContent=global[current]['name'];
-var currentuser=global[current]
+var currentuser=global[current];
 var expensesubmit=document.getElementById("expensesubmit");
 expensesubmit.addEventListener("click",addexpense);
 var incomesubmit=document.getElementById("incomesubmit");
@@ -20,20 +26,22 @@ datesubmit.addEventListener("click",datewise);
 var logout=document.getElementById("logout");
 logout.addEventListener("click",exit);
 function exit(){
-    window.location.href("index.html");
+    window.location.href="index.html";
 }
 function datewise(){
     var date=document.getElementById("date").value;
     var datearray=date.split("-");
     var year=datearray[0];
     var month=datearray[1];
-    if(!(year in currentuser){
+    if(!(year in currentuser)){
         var maindiv=document.getElementById("maindiv");
         maindiv.textContent="";
         var div1=document.createElement("div");
         div1.style.color="red";
         div1.textContent="No Records found for the given year & month";
-        maindiv.append(div1);
+        var divname=document.createElement("div");
+        divname.textContent="Welcome :"+currentuser["name"];
+        maindiv.append(divname,div1);
     }
     else if(!(month in currentuser[year])){
         var maindiv=document.getElementById("maindiv");
@@ -41,13 +49,17 @@ function datewise(){
         var div1=document.createElement("div");
         div1.style.color="red";
         div1.textContent="No Records found for the given year & month";
-        maindiv.append(div1);
+        var divname=document.createElement("div");
+        divname.textContent="Welcome :"+currentuser["name"];
+        maindiv.append(divname,div1);
     }
     else{
         var summary=currentuser[year][month]["summary"];
         var income=currentuser[year][month]["income"];
         var budget=currentuser[year][month]["budget"];
         var expense=currentuser[year][month]["expense"];
+        var divname=document.createElement("div");
+        divname.textContent="Welcome :"+currentuser["name"];
         var summarydiv=document.createElement("div");
         summarydiv.textContent="SUMMARY";
         var br=document.createElement("br");
@@ -85,7 +97,7 @@ function datewise(){
         monthdiv.textContent="Details for month:"+month+"& year:"+year;
         var maindiv=document.getElementById("maindiv");
         maindiv.textContent="";
-        maindiv.append(monthdiv,divincome,divexpense,divbudget,divsavings,divlimit,summarydiv);
+        maindiv.append(divname,monthdiv,divincome,divexpense,divbudget,divsavings,divlimit,summarydiv);
         localStorage.setItem("global",JSON.stringify(global));
     }
 
@@ -134,6 +146,7 @@ function addexpense(){
 function addincome(){
     var item=document.getElementById("incomeitem").value;
     var amount=Number(document.getElementById("incomeamount").value);
+    console.log(item,amount);
     var date=document.getElementById("date").value;
     var datearray=date.split("-");
     var year=datearray[0];
@@ -165,7 +178,6 @@ function addincome(){
         date1["summary"]=summary;
         date1["expense"]=expense;
         date1["budget"]=budget;
-        date1["savings"]=savings;
         date1["income"]=income;
         var year1={}
         year1[year]=date1;
