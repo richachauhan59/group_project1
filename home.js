@@ -27,49 +27,67 @@ function datewise(){
     var datearray=date.split("-");
     var year=datearray[0];
     var month=datearray[1];
-    var summary=currentuser[year][month]["summary"];
-    var income=currentuser[year][month]["income"];
-    var budget=currentuser[year][month]["budget"];
-    var expense=currentuser[year][month]["expense"];
-    var summarydiv=document.createElement("div");
-    summarydiv.textContent="SUMMARY";
-    var br=document.createElement("br");
-    summarydiv.append(br);
-    for(var i=0;i<summary.length;i++){
-        var divsum=document.createElement("div");
-        divsum.textContent=summary[i];
-        summarydiv.append(divsum);
+    if(!(year in currentuser){
+        var maindiv=document.getElementById("maindiv");
+        maindiv.textContent="";
+        var div1=document.createElement("div");
+        div1.style.color="red";
+        div1.textContent="No Records found for the given year & month";
+        maindiv.append(div1);
     }
-    var divincome=document.createElement("div");
-    var divbudget=document.createElement("div");
-    var divexpense=document.createElement("div");
-    var divsavings=document.createElement("div");
-    var divlimit=document.createElement("div");
-    if(income>=expense){
-        divsavings.style.color="green";
-        divsavings.textContent="You are saving"+(income-expense);
+    else if(!(month in currentuser[year])){
+        var maindiv=document.getElementById("maindiv");
+        maindiv.textContent="";
+        var div1=document.createElement("div");
+        div1.style.color="red";
+        div1.textContent="No Records found for the given year & month";
+        maindiv.append(div1);
     }
     else{
-        divsavings.style.color="red";
-        divsavings.textContent="You are not saving and have loan of"+(expense-income);
+        var summary=currentuser[year][month]["summary"];
+        var income=currentuser[year][month]["income"];
+        var budget=currentuser[year][month]["budget"];
+        var expense=currentuser[year][month]["expense"];
+        var summarydiv=document.createElement("div");
+        summarydiv.textContent="SUMMARY";
+        var br=document.createElement("br");
+        summarydiv.append(br);
+        for(var i=0;i<summary.length;i++){
+            var divsum=document.createElement("div");
+            divsum.textContent=summary[i];
+            summarydiv.append(divsum);
+        }
+        var divincome=document.createElement("div");
+        var divbudget=document.createElement("div");
+        var divexpense=document.createElement("div");
+        var divsavings=document.createElement("div");
+        var divlimit=document.createElement("div");
+        if(income>=expense){
+            divsavings.style.color="green";
+            divsavings.textContent="You are saving"+(income-expense);
+        }
+        else{
+            divsavings.style.color="red";
+            divsavings.textContent="You are not saving and have loan of"+(expense-income);
+        }
+        if(budget>=expense){
+            divlimit.style.color="green";
+            divlimit.textContent="You are spending within limit! So expect good savings so plus amount is"+(budget-expense);
+        }
+        else{
+            divlimit.style.color="red";
+            divlimit.textContent="You are not spending within limit! So dont expect savings so overlimit amount is"+(budget-expense);
+        }
+        divincome.textContent="Total income this month"+income;
+        divbudget.textContent="Budget You set for this month is"+budget;
+        divexpense.textContent="So expenses till now is"+expense;
+        var monthdiv=document.createElement("div");
+        monthdiv.textContent="Details for month:"+month+"& year:"+year;
+        var maindiv=document.getElementById("maindiv");
+        maindiv.textContent="";
+        maindiv.append(monthdiv,divincome,divexpense,divbudget,divsavings,divlimit,summarydiv);
+        localStorage.setItem("global",JSON.stringify(global));
     }
-    if(budget>=expense){
-        divlimit.style.color="green";
-        divlimit.textContent="You are spending within limit! So expect good savings so plus amount is"+(budget-expense);
-    }
-    else{
-        divlimit.style.color="red";
-        divlimit.textContent="You are not spending within limit! So dont expect savings so overlimit amount is"+(budget-expense);
-    }
-    divincome.textContent="Total income this month"+income;
-    divbudget.textContent="Budget You set for this month is"+budget;
-    divexpense.textContent="So expenses till now is"+expense;
-    var monthdiv=document.createElement("div");
-    monthdiv.textContent="Details for month:"+month+"& year:"+year;
-    var maindiv=document.getElementById("maindiv");
-    maindiv.textContent="";
-    maindiv.append(monthdiv,divincome,divexpense,divbudget,divsavings,divlimit,summarydiv);
-    localStorage.setItem("global",JSON.stringify(global));
 
 }
 function addexpense(){
