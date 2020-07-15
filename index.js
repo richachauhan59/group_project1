@@ -1,4 +1,4 @@
-var global=JSON.stringify(localStorage.getItem("global"));
+var global=JSON.parse(localStorage.getItem("global"));
 if(global==null){
     var a={}
     localStorage.setItem("global",JSON.stringify(a))
@@ -46,7 +46,7 @@ function add(){
         temp['password']=registerconfirmpassword;
         temp['name']=name;
         global[registeremailid]=temp;
-        localStorage.setItem("global",JSON.parse(global))
+        localStorage.setItem("global",JSON.stringify(global))
 
     }
 }
