@@ -2,23 +2,41 @@
 <html>
 
 <head>
-    <!-- <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
     <title>Expence Manager</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+
+    <style>
+        .pop-up {
+            margin-top: 8%;
+            width: 100%;
+            background-color: rgb(158, 179, 172);
+            border: 2px solid black;
+            padding: 2%;
+            border-radius: 5px;
+            z-index: 99;
+        }
+    </style>
+
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row" style="position: fixed; z-index: 99; width: 100%; background-color: rgb(209, 195, 195);">
-            <img src="images/logo.jpg" class="img-responsive ml-5" alt="Responsive image" style="height: 160px;">
+            <img src="img/logo.png" class="img-responsive ml-5" alt="Logo image"
+                style="height: 150px; border-radius: 80px; padding: 10px;">
 
             <h2 class="col-8 display-4 py-4 px-1">Expence Manager</h2>
-            <button class="btn btn-primary col-1 h-25 my-auto" style="float: right;"><span
-                    style="font-size: x-large;">Login</span></button>
-            <button class="btn btn-primary col-1 h-25 my-auto mx-auto" style="float: right;"><span
-                    style="font-size: x-large;">Sign Up</span></button>
+
+            <!-- Button trigger modal -->
+            <button class="btn btn-primary col-1 h-25 my-auto" style="float: right;"><span style="font-size: x-large;"
+                    data-toggle="modal" data-target="#login">Login</span></button>
+            <button class="btn btn-primary col-1 h-25 my-auto mx-auto" data-toggle="modal" data-target="#signup"
+                style="float: right;"><span style="font-size: x-large;">Sign Up</span>
+            </button>
+
             <nav class="navbar navbar-collapse p-0 pl-5"
                 style="background-color: cadetblue; height: 50px; justify-content: inherit;">
                 <a class="nav-link" style="font-size: x-large; color: white;" href="#">Home <span
@@ -28,12 +46,84 @@
 
             </nav>
         </div>
+
+        <!-- Modal - Pop up for sign up form-->
+        <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content pop-up">
+                    <div class="modal-header">
+                        <h2 class="font-weight-bold modal-title" id="sign_up_Label">Create Account</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputName">Name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp"
+                                placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Confirm Password</label>
+                            <input type="password" class="form-control" id="C_password" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal - Login Pop up -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content pop-up">
+                <div class="modal-header">
+                    <h2 class="font-weight-bold modal-title" id="sign_up_Label">Login</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 
     <script type="text/javascript" src="index.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
