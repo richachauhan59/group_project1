@@ -220,9 +220,9 @@ function addincome(e){
         }
         else{
             var summary=[date+" "+item+" "+amount.toString()+" INCOME"];
-            var expense=amount;
+            var expense=0;
             var budget=0;
-            var income=0;
+            var income=amount;
             var date1={}
             date1["summary"]=summary;
             date1["expense"]=expense;
