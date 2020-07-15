@@ -99,11 +99,11 @@ function addexpense(){
     var month=datearray[1];
     if(year in currentuser){
         if(month in currentuser[year]){
-            currentuser[year][month]["summary"].push(date+" "+item+" "+amount+" EXPENSE");
+            currentuser[year][month]["summary"].push(date+" "+item+" "+amount.toString()+" EXPENSE");
             currentuser[year][month]["expense"]+=amount;
         }
         else{
-            var summary=[date+" "+item+" "+amount+" EXPENSE"];
+            var summary=[date+" "+item+" "+amount.toString()+" EXPENSE"];
             var expense=amount;
             var budget=0;
             var income=0;
@@ -116,7 +116,7 @@ function addexpense(){
         }
     }
     else{
-        var summary=[date+" "+item+" "+amount+" EXPENSE"];
+        var summary=[date+" "+item+" "+amount.toString()+" EXPENSE"];
         var expense=amount;
         var budget=0;
         var income=0;
@@ -140,11 +140,11 @@ function addincome(){
     var month=datearray[1];
     if(year in currentuser){
         if(month in currentuser[year]){
-            currentuser[year][month]["summary"].push(date+" "+item+" "+amount+" INCOME");
+            currentuser[year][month]["summary"].push(date+" "+item+" "+amount.toString()+" INCOME");
             currentuser[year][month]["income"]+=amount;
         }
         else{
-            var summary=[date+" "+item+" "+amount+" INCOME"];
+            var summary=[date+" "+item+" "+amount.toString()+" INCOME"];
             var expense=amount;
             var budget=0;
             var income=0;
@@ -157,7 +157,7 @@ function addincome(){
         }
     }
     else{
-        var summary=[date+" "+item+" "+amount+" INCOME"];
+        var summary=[date+" "+item+" "+amount.toString()+" INCOME"];
         var expense=0;
         var budget=0;
         var income=amount;
