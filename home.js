@@ -26,7 +26,8 @@ var datesubmit=document.getElementById("datesubmit");
 datesubmit.addEventListener("click",datenew);
 var logout=document.getElementById("logout");
 logout.addEventListener("click",exit);
-function exit(){
+function exit(e){
+    e.preventDefault();
     window.location.href="index.html";
 }
 function datenew(e){

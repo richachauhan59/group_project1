@@ -6,10 +6,13 @@ if(global==null){
 
 var loginsubmit=document.getElementById("loginsubmit");
 loginsubmit.addEventListener("click",check)
-function check(){
+function check(e){
+    e.preventDefault();
     var global1=JSON.parse(localStorage.getItem("global"));
+    console.log(global1);
     var loginemailid=document.getElementById("loginemailid").value;
     var loginpassword=document.getElementById("loginpassword").value;
+    console.log(loginemailid,loginpassword)
     var divid=document.getElementById("divid1");
     if(!(loginemailid in global1)){
         divid.style.color="red";
@@ -23,9 +26,11 @@ function check(){
         divid.style.color="green";
         divid.textContent="Success!";
         setTimeout(() => {
-            window.location.href='home.html';
+            window.location.href="home.html";
         }, 3000);
         localStorage.setItem("current",JSON.stringify(loginemailid));
+        
+        
     }
 }
 var registersubmit=document.getElementById("registersubmit");
