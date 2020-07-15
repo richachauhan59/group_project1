@@ -91,8 +91,8 @@ function datewise(){
 
 }
 function addexpense(){
-    var item=document.getElementById("expenseitem");
-    var amount=document.getElementById("expenseamount");
+    var item=document.getElementById("expenseitem").value;
+    var amount=Number(document.getElementById("expenseamount").value);
     var date=document.getElementById("date").value;
     var datearray=date.split("-");
     var year=datearray[0];
@@ -132,8 +132,8 @@ function addexpense(){
     datewise();
 }
 function addincome(){
-    var item=document.getElementById("incomeitem");
-    var amount=document.getElementById("incomeamount");
+    var item=document.getElementById("incomeitem").value;
+    var amount=Number(document.getElementById("incomeamount").value);
     var date=document.getElementById("date").value;
     var datearray=date.split("-");
     var year=datearray[0];
@@ -174,7 +174,7 @@ function addincome(){
     datewise();
 }
 function addbudget(){
-    var amount=document.getElementById("budgetamount").value;
+    var amount=Number(document.getElementById("budgetamount").value);
     var date=document.getElementById("date").value;
     var datearray=date.split("-");
     var year=datearray[0];
