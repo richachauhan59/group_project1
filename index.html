@@ -3,11 +3,10 @@
 
 <head>
     <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Expence Manager</title>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
-
     <style>
         .pop-up {
             margin-top: 8%;
@@ -47,7 +46,15 @@
 
             </nav>
         </div>
-        
+
+        <ul class="list-unstyled hidden-xs hidden-sm white" id="listSocial">
+            <li class="animated fadeInLeft"><a href="#" target="_blank" rel="nofollow"><span
+                        class="iconfacebook"></span></a></li>
+            <li class="animated fadeInLeft"><a href="#" target="_blank" rel="nofollow"><span
+                        class="icongoogleplus"></span></a></li>
+            <li class="animated fadeInLeft"><a href="#" target="_blank" rel="nofollow"><span
+                        class="icontwitter"></span></a></li>
+        </ul>
 
         <!-- Modal - Pop up for sign up form-->
         <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -81,7 +88,8 @@
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Confirm Password</label>
-                            <input type="password" class="form-control" id="registerconfirmpassword" placeholder="Confirm Password">
+                            <input type="password" class="form-control" id="registerconfirmpassword"
+                                placeholder="Confirm Password">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -108,8 +116,7 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="loginemailid"
-                                aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="loginemailid" aria-describedby="emailHelp">
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                 else.</small>
                         </div>
@@ -123,7 +130,15 @@
             </div>
         </div>
     </div>
-    
+
+
+    <div class="screenshot-one hidden-xs hidden-sm">
+        <img class="animated fadeInRight" src="img/screenshot1.png"
+            alt="Understand where your money goes with in-depth reports">
+        <img class="animated fadeInRight" src="img/screenshot2.png" alt="Simply keep track of your money">
+        <img class="animated fadeInRight" src="img/screenshot3.png"
+            alt="Beautiful money management app with fancy icon packs">
+    </div>
 
     <script type="text/javascript" src="index.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

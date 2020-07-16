@@ -13,6 +13,31 @@
             background-color: gray;
             border-radius: 2px;
         }
+
+        .smalldiv {
+            width: 48%;
+            margin-left: 1%;
+            float: left;
+            background-color: rgb(211, 255, 211);
+        }
+
+        .class1 {
+            float: left;
+            margin-top: 2%;
+            font-size: larger;
+            width: 100%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        #maindiv {
+            margin-top: 3%;
+            background-color: rgb(196, 252, 196);
+            border: solid black 2px;
+        }
+
+        /* .class_sum {
+            float: right;
+        } */
     </style>
     <script src="https://kit.fontawesome.com/6f49f822dc.js" crossorigin="anonymous"></script>
 </head>
@@ -20,10 +45,10 @@
 <body style="background-color: darkslategray;">
     <div class="container mt-5" style="background-color: rgb(196, 252, 196); padding: 3%;">
         <form>
-            <h2>Enter your details</h2>
+            <h2>Enter Your Details</h2>
             <div class="form-group row" style="background-color: rgb(211, 255, 211); padding: 4px;">
                 <div class="col-10">
-                    <label> Enter date here</label>
+                    <label> Enter Date Here</label>
                     <input type="date" class="form-control" id="date">
                 </div>
                 <div class="col-2" style="padding: 32px;">
@@ -33,12 +58,12 @@
 
             <div class="form-group row" style="background-color:rgb(211, 255, 211); padding: 4px;">
                 <div class="col-5">
-                    <label>Choose your Income</label>
+                    <label>Choose Your Income</label>
                     <input class="form-control" id="incomeitem">
                 </div>
 
                 <div class="div1 col-5">
-                    <label>Enter Income amount</label>
+                    <label>Enter Income Amount</label>
                     <input class="form-control" id="incomeamount" type="number">
                 </div>
                 <div class="col-2" style="padding: 32px;">
@@ -49,11 +74,11 @@
 
             <div class="form-group row" style="background-color: rgb(211, 255, 211); padding: 4px;">
                 <div class="col-5">
-                    <label>Choose your expense</label>
+                    <label>Choose Your Expense</label>
                     <input class="form-control" id="expenseitem">
                 </div>
                 <div class="div1 col-5">
-                    <label>Enter expense amount</label>
+                    <label>Enter Expense Amount</label>
                     <input class="form-control" id="expenseamount" type="number">
                 </div>
                 <div class="col-2" style="padding: 32px;">
@@ -74,7 +99,12 @@
             <button class="btn btn-primary" id="logout" style="background-color: #0a6342;">Logout</button>
         </form>
     </div>
-    <div id="maindiv" style="background-color: azure;text-align: center;"><div style="float: none;"></div></div>
+
+
+    <div class="container mt-5" id="maindiv"
+        style="background-color: #c4fcc4;text-align: center;height: 840px; padding: 30px;">
+        <div style="float: none;"></div>
+    </div>
 
 
     <script type="text/javascript" src="home.js"></script>
