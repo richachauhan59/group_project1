@@ -184,6 +184,7 @@ function datewise() {
         smalldiv1.append(divname, idiv7, monthdiv, idiv1, divincome, idiv2, divexpense, idiv3, divbudget, idiv4, divsavings, idiv5, divlimit, idiv6)
         smalldiv2.append(summarydiv)
 
+
         maindiv.append(smalldiv1, smalldiv2);
         localStorage.setItem("global", JSON.stringify(global));
     }
