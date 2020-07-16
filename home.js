@@ -166,20 +166,20 @@ function datewise() {
         tempdiv.textContent = "DETAILS"
         divname.setAttribute('class', "class1");
         divname.style = "font-size: x-large;"
-        idiv7.setAttribute('class', "class1");
-        monthdiv.setAttribute('class', "class1");
-        idiv1.setAttribute('class', "class1");
-        divincome.setAttribute('class', "class1");
-        idiv2.setAttribute('class', "class1");
-        divexpense.setAttribute('class', "class1");
-        idiv3.setAttribute('class', "class1");
-        divbudget.setAttribute('class', "class1");
-        idiv4.setAttribute('class', "class1");
-        divsavings.setAttribute('class', "class1");
-        idiv5.setAttribute('class', "class1");
-        divlimit.setAttribute('class', "class1");
-        idiv6.setAttribute('class', "class1");
-        tempdiv.setAttribute('class', "class1");
+        idiv7.setAttribute('class', "class2");
+        monthdiv.setAttribute('class', "class3");
+        idiv1.setAttribute('class', "class2");
+        divincome.setAttribute('class', "class3");
+        idiv2.setAttribute('class', "class2");
+        divexpense.setAttribute('class', "class3");
+        idiv3.setAttribute('class', "class2");
+        divbudget.setAttribute('class', "class3");
+        idiv4.setAttribute('class', "class2");
+        divsavings.setAttribute('class', "class3");
+        idiv5.setAttribute('class', "class2");
+        divlimit.setAttribute('class', "class3");
+        idiv6.setAttribute('class', "class2");
+        tempdiv.setAttribute('class', "class3");
         summarydiv.setAttribute('class', "class1");
         smalldiv1.append(divname, idiv7, monthdiv, idiv1, divincome, idiv2, divexpense, idiv3, divbudget, idiv4, divsavings, idiv5, divlimit, idiv6)
         smalldiv2.append(summarydiv)
