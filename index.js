@@ -24,7 +24,7 @@ function check(e){
     }
     else{
         divid.style.color="green";
-        divid.textContent="Success!";
+        divid.textContent="Login Successful!";
         setTimeout(() => {
             window.location.href="home.html";
         }, 3000);
