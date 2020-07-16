@@ -83,7 +83,7 @@ function datewise() {
         maindiv.textContent = "";
         var div1 = document.createElement("div");
         div1.style.color = "red";
-        div1.textContent = "No Records found for the given year & month";
+        div1.textContent = "No Records Found for the given Year & Month";
         var divname = document.createElement("div");
         divname.textContent = "Welcome : " + currentuser["name"];
         maindiv.append(divname, div1);
@@ -92,7 +92,7 @@ function datewise() {
         maindiv.textContent = "";
         var div1 = document.createElement("div");
         div1.style.color = "red";
-        div1.textContent = "No Records found for the given year & month";
+        div1.textContent = "No Records Found for the given Year & Month";
         var divname = document.createElement("div");
         divname.textContent = "Welcome : " + currentuser["name"];
         maindiv.append(divname, div1);
@@ -200,7 +200,7 @@ function addexpense(e) {
     var month = datearray[1];
     if (year in currentuser) {
         if (month in currentuser[year]) {
-            currentuser[year][month]["summary"].push(date + " " + item + " " + amount.toString() + " EXPENSE");
+            currentuser[year][month]["summary"].push(date + " :: " + item + " :: " + amount.toString() + " EXPENSE");
             currentuser[year][month]["expense"] += amount;
         } else {
             var summary = [date + " " + item + " " + amount.toString() + " EXPENSE"];
@@ -215,7 +215,7 @@ function addexpense(e) {
             currentuser[year][month] = date1;
         }
     } else {
-        var summary = [date + " " + item + " " + amount.toString() + " EXPENSE"];
+        var summary = [date + " :: " + item + " :: " + amount.toString() + " EXPENSE"];
         var expense = amount;
         var budget = 0;
         var income = 0;
@@ -243,10 +243,10 @@ function addincome(e) {
     var month = datearray[1];
     if (year in currentuser) {
         if (month in currentuser[year]) {
-            currentuser[year][month]["summary"].push(date + " " + item + " " + amount.toString() + " INCOME");
+            currentuser[year][month]["summary"].push(date + " :: " + item + " :: " + amount.toString() + " INCOME");
             currentuser[year][month]["income"] += amount;
         } else {
-            var summary = [date + " " + item + " " + amount.toString() + " INCOME"];
+            var summary = [date + " :: " + item + " :: " + amount.toString() + " INCOME"];
             var expense = 0;
             var budget = 0;
             var income = amount;
@@ -258,7 +258,7 @@ function addincome(e) {
             currentuser[year][month] = date1;
         }
     } else {
-        var summary = [date + " " + item + " " + amount.toString() + " INCOME"];
+        var summary = [date + " :: " + item + " :: " + amount.toString() + " INCOME"];
         var expense = 0;
         var budget = 0;
         var income = amount;
